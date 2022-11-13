@@ -13,15 +13,17 @@ class SQLConnectionTest {
 
     @Test
     public void connectTest() throws SQLException, IOException {
-    	connection = SQLConnection.getConnection();
+    	SQLConnection sqlConnection = new SQLConnection();
+    	connection = sqlConnection.getConnection();
         assertTrue(connection.isValid(10));
     }
     
     @Test
     public void closeTest() throws SQLException, IOException {
-    	connection = SQLConnection.getConnection();
-        SQLConnection.closeConnection(connection);
-        assertTrue(connection.isClosed());
+        SQLConnection sqlConnection = new SQLConnection();
+        sqlConnection.getConnection();
+		sqlConnection.closeConnection();
+        assertTrue(sqlConnection.conn.isClosed());
     }
 
 }
