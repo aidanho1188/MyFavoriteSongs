@@ -17,7 +17,7 @@ public class SQLConnection {
 	private static ResultSet rs = null;
 
 	// load info from hidden file
-	public Properties loadProps() throws IOException {
+	private Properties loadProps() throws IOException {
 		Properties props = new Properties();
 		FileInputStream in = new FileInputStream(".dbconfig.properties");
 		props.load(in);
