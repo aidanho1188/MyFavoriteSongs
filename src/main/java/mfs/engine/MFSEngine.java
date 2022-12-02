@@ -41,10 +41,10 @@ public class MFSEngine {
 			ResultSet rs = stmt.executeQuery(SQL);
 
 			// Iterate through the data in the result set and display it.
-//            while (rs.next()) {
-//			System.out.println(rs.getString("username") + " " + rs.getString("password"));
-//            }
-			System.out.println(con);
+            while (rs.next()) {
+			System.out.println(rs.getString("username") + " " + rs.getString("password"));
+            }
+//			System.out.println(rs.getObject(1));
 		}
 		// Handle any errors that may have occurred.
 		catch (SQLException e) {

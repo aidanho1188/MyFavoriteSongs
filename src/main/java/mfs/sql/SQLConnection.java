@@ -16,6 +16,14 @@ public class SQLConnection {
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
 
+	public Connection getConn() {
+		return conn;
+	}
+
+	public void setConn(Connection conn) {
+		SQLConnection.conn = conn;
+	}
+
 	// load info from hidden file
 	private Properties loadProps() throws IOException {
 		Properties props = new Properties();
@@ -47,9 +55,9 @@ public class SQLConnection {
 	}
 
 	// *****methods for execute SQL commands*****
-	public Statement getStatement() throws SQLException {
+	public Statement getStatement(Connection conn) throws SQLException {
 		stmt = conn.createStatement();
-		return ps;
+		return stmt;
 	}
 
 	public ResultSet getResultSet(String query) throws SQLException {
@@ -57,6 +65,10 @@ public class SQLConnection {
 		return rs;
 	}
 
+	public void resetTable(Connection conn) throws SQLException {
+		stmt.executeUpdate("TRUNCATE TABLE accounts;");
+	}
+	
 	// ******Closes*****
 	public void closeEverything() {
 		if (rs != null) {
