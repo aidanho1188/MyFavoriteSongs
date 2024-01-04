@@ -7,6 +7,10 @@ package mfs.sql;
 public class SQLRetriever {
 
 	public String SQLRetrieve(String whatToSelect) {
-		return "SELECT" + whatToSelect + "FROM accounts";
+		return "SELECT " + whatToSelect + " FROM accounts";
+	}
+	
+	public String SQLRetrieveUserInfo(String username, String password) {
+		return "SELECT * FROM accounts WHERE username =" + username + " AND password=" + password;
 	}
 }
